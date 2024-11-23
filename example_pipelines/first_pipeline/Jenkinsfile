@@ -1,0 +1,14 @@
+// A simple jenkins pipeline to verify if the docker agent configuration is working as expected.
+
+ pipeline {
+  agent {
+    docker { image 'node:21-alpine' }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
+    }
+  }
+}
